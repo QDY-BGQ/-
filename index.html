@@ -81,17 +81,169 @@
             position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
             color: rgba(255,255,255,0.6); font-size: 14px; display: none; z-index: 50;
         }
+        
+        /* 加载界面 */
+        #loadingScreen {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, #0a1929 0%, #1a3a5c 50%, #0d2847 100%);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            z-index: 200;
+        }
+        #loadingScreen h1 {
+            color: #00d4ff; font-size: 2.5rem; margin-bottom: 2rem;
+        }
+        #loadingBar {
+            width: 200px; height: 10px; background: rgba(255,255,255,0.3); border-radius: 5px;
+            overflow: hidden;
+        }
+        #loadingProgress {
+            height: 100%; background: linear-gradient(90deg, #00ff88, #00d4ff);
+            transition: width 0.3s;
+        }
+        #loadingText { color: white; margin-top: 10px; font-size: 14px; }
+        
+        /* 操作引导界面 */
+        #guideScreen {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none; flex-direction: column; align-items: center; justify-content: center;
+            z-index: 150;
+            padding: 20px;
+        }
+        #guideScreen h2 { color: #00d4ff; font-size: 2rem; margin-bottom: 20px; }
+        .guideStep {
+            color: white; font-size: 16px; line-height: 2; text-align: center;
+            margin-bottom: 20px;
+        }
+        #guideNext { margin-top: 20px; }
+        #guideSkip {
+            position: absolute; top: 20px; right: 20px;
+            color: rgba(255,255,255,0.6); font-size: 14px; cursor: pointer;
+        }
+        #guideSkip:hover { color: white; }
+        
+        /* 个人简历页面 */
+        #profileScreen {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none; flex-direction: column; align-items: center; justify-content: center;
+            z-index: 150;
+            padding: 20px;
+        }
+        #profileScreen h2 { color: #00d4ff; font-size: 2rem; margin-bottom: 20px; }
+        .profileCard {
+            background: rgba(255,255,255,0.1); border-radius: 15px; padding: 20px;
+            max-width: 400px; width: 100%;
+        }
+        .profileItem {
+            color: white; font-size: 16px; margin: 10px 0;
+        }
+        .profileItem strong { color: #00d4ff; }
+        
+        /* 排行榜页面 */
+        #leaderboardScreen {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none; flex-direction: column; align-items: center;
+            z-index: 150;
+            padding: 20px;
+        }
+        #leaderboardScreen h2 { color: #00d4ff; font-size: 2rem; margin-bottom: 20px; }
+        #leaderboardList {
+            max-width: 400px; width: 100%; max-height: 400px; overflow-y: auto;
+        }
+        .leaderboardItem {
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(255,255,255,0.1); border-radius: 10px;
+            padding: 12px 15px; margin: 8px 0;
+        }
+        .leaderboardRank {
+            width: 30px; height: 30px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: bold;
+        }
+        .rank1 { background: #ffd700; color: #000; }
+        .rank2 { background: #c0c0c0; color: #000; }
+        .rank3 { background: #cd7f32; color: #000; }
+        .rankOther { background: rgba(255,255,255,0.2); color: white; }
+        .leaderboardName { color: white; flex: 1; margin-left: 10px; }
+        .leaderboardScore { color: #00ff88; font-weight: bold; }
+        #leaderboardControls {
+            margin-top: 20px; display: flex; gap: 10px;
+        }
+        #clearLeaderboard {
+            background: linear-gradient(135deg, #ff4444, #cc0000);
+        }
+        
+        /* 成就页面 */
+        #achievementsScreen {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none; flex-direction: column; align-items: center;
+            z-index: 150;
+            padding: 20px;
+        }
+        #achievementsScreen h2 { color: #00d4ff; font-size: 2rem; margin-bottom: 20px; }
+        #achievementsList {
+            max-width: 400px; width: 100%;
+        }
+        .achievementItem {
+            display: flex; align-items: center;
+            background: rgba(255,255,255,0.1); border-radius: 10px;
+            padding: 15px; margin: 10px 0;
+            opacity: 0.5;
+        }
+        .achievementItem.unlocked { opacity: 1; }
+        .achievementIcon {
+            width: 50px; height: 50px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; margin-right: 15px;
+            background: rgba(255,255,255,0.2);
+        }
+        .achievementItem.unlocked .achievementIcon {
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+        }
+        .achievementInfo { flex: 1; }
+        .achievementName { color: white; font-weight: bold; }
+        .achievementDesc { color: rgba(255,255,255,0.6); font-size: 14px; }
+        
+        /* 分享弹窗 */
+        #shareModal {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none; flex-direction: column; align-items: center; justify-content: center;
+            z-index: 150;
+            padding: 20px;
+        }
+        #shareModal h3 { color: #00d4ff; margin-bottom: 20px; }
+        #shareText {
+            width: 100%; max-width: 400px; padding: 15px;
+            background: rgba(255,255,255,0.1); border: none; border-radius: 10px;
+            color: white; font-size: 14px;
+            margin-bottom: 15px; resize: none;
+        }
+        #shareSuccess { color: #00ff88; display: none; margin-bottom: 15px; }
     </style>
 </head>
-<body>
+<body onload="startLoading()">
     <div id="gameContainer">
         <canvas id="gameCanvas"></canvas>
         
+        <!-- 加载界面 -->
+        <div id="loadingScreen">
+            <h1>🐟 大鱼吃小鱼 🦈</h1>
+            <div id="loadingBar"><div id="loadingProgress"></div></div>
+            <div id="loadingText">加载中...</div>
+        </div>
+        
         <!-- 开始界面 -->
-        <div id="startScreen">
+        <div id="startScreen" style="display: none;">
             <h1>🐟 大鱼吃小鱼 🦈</h1>
             <div id="highScore">🏆 最高分: 0</div>
             <button class="btn" onclick="startGame()">开始游戏</button>
+            <button class="btn" onclick="showLeaderboard()">排行榜</button>
+            <button class="btn" onclick="showAchievements()">成就</button>
+            <button class="btn" onclick="showProfile()">关于作者</button>
             <button class="btn" onclick="showHelp()">游戏说明</button>
         </div>
         
@@ -104,6 +256,7 @@
             </div>
             <div>
                 <button class="iconBtn" id="soundBtn" onclick="toggleSound()">🔊</button>
+                <button class="iconBtn" onclick="showProfile()">👤</button>
                 <button class="iconBtn" onclick="pauseGame()">⏸️</button>
             </div>
         </div>
@@ -120,6 +273,7 @@
             <div id="finalScore">本局得分: 0</div>
             <div id="bestScore">历史最高分: 0</div>
             <div id="newRecord" style="display: none;">🎉 新纪录！</div>
+            <button class="btn" onclick="shareScore()">分享成绩</button>
             <button class="btn" onclick="startGame()">再来一局</button>
             <button class="btn" onclick="backToMenu()">返回主页</button>
         </div>
@@ -143,6 +297,86 @@
                 <p>💎 生命珍珠 - 恢复一条生命</p>
             </div>
             <button class="btn" style="margin-top: 20px;" onclick="closeHelp()">关闭</button>
+        </div>
+        
+        <!-- 操作引导界面 -->
+        <div id="guideScreen">
+            <div id="guideSkip" onclick="skipGuide()">跳过引导</div>
+            <h2>🎮 游戏引导</h2>
+            <div class="guideStep">
+                <div style="font-size: 48px; margin-bottom: 15px;">🎯</div>
+                <p><strong>第 1/3 步</strong></p>
+                <p>使用 WASD 或方向键控制鱼的移动方向</p>
+                <p>手机用户可以滑动屏幕控制</p>
+            </div>
+            <button class="btn" id="guideNext" onclick="nextGuideStep()">下一步 →</button>
+        </div>
+        
+        <!-- 个人简历页面 -->
+        <div id="profileScreen">
+            <h2>👤 关于作者</h2>
+            <div class="profileCard">
+                <div class="profileItem"><strong>姓名:</strong> 游戏开发者</div>
+                <div class="profileItem"><strong>职业:</strong> 前端工程师</div>
+                <div class="profileItem"><strong>技能:</strong> HTML5, CSS3, JavaScript, Canvas</div>
+                <div class="profileItem"><strong>项目:</strong> 大鱼吃小鱼 H5游戏</div>
+                <div class="profileItem"><strong>简介:</strong> 热爱游戏开发，专注于创造有趣的互动体验</div>
+            </div>
+            <button class="btn" style="margin-top: 20px;" onclick="closeProfile()">返回</button>
+        </div>
+        
+        <!-- 排行榜页面 -->
+        <div id="leaderboardScreen">
+            <h2>🏆 排行榜</h2>
+            <div id="leaderboardList">
+                <div class="leaderboardItem">
+                    <div class="leaderboardRank rank1">1</div>
+                    <div class="leaderboardName">玩家1</div>
+                    <div class="leaderboardScore">0</div>
+                </div>
+            </div>
+            <div id="leaderboardControls">
+                <button class="btn" onclick="closeLeaderboard()">返回</button>
+                <button class="btn" id="clearLeaderboard" onclick="clearLeaderboard()">清空记录</button>
+            </div>
+        </div>
+        
+        <!-- 成就页面 -->
+        <div id="achievementsScreen">
+            <h2>🏅 成就系统</h2>
+            <div id="achievementsList">
+                <div class="achievementItem" id="achievement1">
+                    <div class="achievementIcon">🎯</div>
+                    <div class="achievementInfo">
+                        <div class="achievementName">首次通关</div>
+                        <div class="achievementDesc">完成第一次游戏</div>
+                    </div>
+                </div>
+                <div class="achievementItem" id="achievement2">
+                    <div class="achievementIcon">⭐</div>
+                    <div class="achievementInfo">
+                        <div class="achievementName">满分挑战</div>
+                        <div class="achievementDesc">达到最高分数</div>
+                    </div>
+                </div>
+                <div class="achievementItem" id="achievement3">
+                    <div class="achievementIcon">⚡</div>
+                    <div class="achievementInfo">
+                        <div class="achievementName">速度之王</div>
+                        <div class="achievementDesc">在冲刺状态下吃掉10条鱼</div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn" style="margin-top: 20px;" onclick="closeAchievements()">返回</button>
+        </div>
+        
+        <!-- 分享弹窗 -->
+        <div id="shareModal">
+            <h3>📤 分享成绩</h3>
+            <textarea id="shareText" rows="4" readonly></textarea>
+            <div id="shareSuccess">✓ 已复制到剪贴板！</div>
+            <button class="btn" onclick="copyShareText()">复制分享文本</button>
+            <button class="btn" onclick="closeShare()">关闭</button>
         </div>
     </div>
 
@@ -170,6 +404,21 @@
         const powerUpHint = document.getElementById('powerUpHint');
         const touchHint = document.getElementById('touchHint');
         const helpModal = document.getElementById('helpModal');
+        
+        // 新功能UI元素
+        const loadingScreen = document.getElementById('loadingScreen');
+        const loadingProgress = document.getElementById('loadingProgress');
+        const loadingText = document.getElementById('loadingText');
+        const guideScreen = document.getElementById('guideScreen');
+        const guideStep = document.querySelector('.guideStep');
+        const profileScreen = document.getElementById('profileScreen');
+        const leaderboardScreen = document.getElementById('leaderboardScreen');
+        const leaderboardList = document.getElementById('leaderboardList');
+        const achievementsScreen = document.getElementById('achievementsScreen');
+        const achievementsList = document.getElementById('achievementsList');
+        const shareModal = document.getElementById('shareModal');
+        const shareText = document.getElementById('shareText');
+        const shareSuccess = document.getElementById('shareSuccess');
         
         // 游戏数据
         let score = 0;
@@ -316,6 +565,9 @@
         
         // 开始游戏
         function startGame() {
+            // 重置冲刺击杀计数
+            dashKillCount = 0;
+            
             initGame();
             currentState = GAME_STATE.PLAYING;
             startScreen.style.display = 'none';
@@ -372,6 +624,9 @@
             } else {
                 newRecordElement.style.display = 'none';
             }
+            
+            // 添加到排行榜
+            addToLeaderboard(null, score);
             
             stopBGM();
             playSound('gameOver');
@@ -732,6 +987,11 @@
             
             score += points;
             growth += points;
+            
+            // 冲刺状态下击杀计数（用于速度之王成就）
+            if (player.isDashing) {
+                dashKillCount++;
+            }
             
             // 创建粒子效果
             createEatEffect(fish.x, fish.y, points);
@@ -1268,6 +1528,238 @@
         function closeHelp() {
             helpModal.style.display = 'none';
         }
+        
+        // ==================== 新功能函数 ====================
+        
+        // 加载画面
+        let loadingProgressValue = 0;
+        let loadingInterval;
+        
+        function startLoading() {
+            loadingProgressValue = 0;
+            loadingScreen.style.display = 'flex';
+            startScreen.style.display = 'none';
+            
+            loadingInterval = setInterval(() => {
+                loadingProgressValue += Math.random() * 15;
+                if (loadingProgressValue >= 100) {
+                    loadingProgressValue = 100;
+                    clearInterval(loadingInterval);
+                    
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                        // 检查是否首次进入游戏
+                        if (!localStorage.getItem('hasPlayed')) {
+                            showGuide();
+                        } else {
+                            startScreen.style.display = 'flex';
+                        }
+                    }, 500);
+                }
+                loadingProgress.style.width = loadingProgressValue + '%';
+                loadingText.textContent = '加载中... ' + Math.floor(loadingProgressValue) + '%';
+            }, 100);
+        }
+        
+        // 操作引导
+        let currentGuideStep = 1;
+        const guideSteps = [
+            { icon: '🎯', title: '第 1/3 步', content: '使用 WASD 或方向键控制鱼的移动方向\n手机用户可以滑动屏幕控制' },
+            { icon: '🐟', title: '第 2/3 步', content: '吃掉比你小的鱼获得分数和成长值\n被更大的鱼撞击会损失生命' },
+            { icon: '⭐', title: '第 3/3 步', content: '收集道具获得特殊能力\n成长值满后鱼会变大' }
+        ];
+        
+        function showGuide() {
+            currentGuideStep = 1;
+            updateGuideStep();
+            guideScreen.style.display = 'flex';
+        }
+        
+        function updateGuideStep() {
+            const step = guideSteps[currentGuideStep - 1];
+            guideStep.innerHTML = `
+                <div style="font-size: 48px; margin-bottom: 15px;">${step.icon}</div>
+                <p><strong>${step.title}</strong></p>
+                <p>${step.content.replace(/\\n/g, '<br>')}</p>
+            `;
+        }
+        
+        function nextGuideStep() {
+            if (currentGuideStep < 3) {
+                currentGuideStep++;
+                updateGuideStep();
+            } else {
+                skipGuide();
+            }
+        }
+        
+        function skipGuide() {
+            localStorage.setItem('hasPlayed', 'true');
+            guideScreen.style.display = 'none';
+            startScreen.style.display = 'flex';
+        }
+        
+        // 个人简历页面
+        function showProfile() {
+            profileScreen.style.display = 'flex';
+            document.querySelectorAll('[id$="Screen"], [id$="Modal"]').forEach(el => {
+                if (el.id !== 'profileScreen') el.style.display = 'none';
+            });
+        }
+        
+        function closeProfile() {
+            profileScreen.style.display = 'none';
+            if (currentState === GAME_STATE.MENU) {
+                startScreen.style.display = 'flex';
+            } else if (currentState === GAME_STATE.PLAYING || currentState === GAME_STATE.PAUSED) {
+                gameUI.style.display = 'flex';
+            }
+        }
+        
+        // 排行榜系统
+        function loadLeaderboard() {
+            const data = localStorage.getItem('leaderboard');
+            return data ? JSON.parse(data) : [
+                { name: '玩家1', score: 0, date: new Date().toISOString() }
+            ];
+        }
+        
+        function saveLeaderboard(leaderboard) {
+            localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
+        }
+        
+        function addToLeaderboard(playerName, playerScore) {
+            const leaderboard = loadLeaderboard();
+            leaderboard.push({
+                name: playerName || '匿名玩家',
+                score: playerScore,
+                date: new Date().toISOString()
+            });
+            // 按分数排序，保留前10名
+            leaderboard.sort((a, b) => b.score - a.score);
+            saveLeaderboard(leaderboard.slice(0, 10));
+            checkAchievements(playerScore);
+        }
+        
+        function showLeaderboard() {
+            const leaderboard = loadLeaderboard();
+            leaderboardList.innerHTML = '';
+            
+            leaderboard.forEach((item, index) => {
+                const rankClass = index < 3 ? `rank${index + 1}` : 'rankOther';
+                leaderboardList.innerHTML += `
+                    <div class="leaderboardItem">
+                        <div class="leaderboardRank ${rankClass}">${index + 1}</div>
+                        <div class="leaderboardName">${item.name}</div>
+                        <div class="leaderboardScore">${item.score}</div>
+                    </div>
+                `;
+            });
+            
+            leaderboardScreen.style.display = 'flex';
+            startScreen.style.display = 'none';
+        }
+        
+        function closeLeaderboard() {
+            leaderboardScreen.style.display = 'none';
+            startScreen.style.display = 'flex';
+        }
+        
+        function clearLeaderboard() {
+            if (confirm('确定要清空所有记录吗？')) {
+                localStorage.removeItem('leaderboard');
+                showLeaderboard();
+            }
+        }
+        
+        // 成就系统
+        const ACHIEVEMENTS = {
+            firstPlay: { id: 'achievement1', name: '首次通关', desc: '完成第一次游戏', icon: '🎯' },
+            highScore: { id: 'achievement2', name: '满分挑战', desc: '达到最高分数', icon: '⭐' },
+            speedKing: { id: 'achievement3', name: '速度之王', desc: '在冲刺状态下吃掉10条鱼', icon: '⚡' }
+        };
+        
+        let dashKillCount = 0;
+        
+        function loadAchievements() {
+            const data = localStorage.getItem('achievements');
+            return data ? JSON.parse(data) : {};
+        }
+        
+        function saveAchievements(achievements) {
+            localStorage.setItem('achievements', JSON.stringify(achievements));
+        }
+        
+        function unlockAchievement(achievementId) {
+            const achievements = loadAchievements();
+            if (!achievements[achievementId]) {
+                achievements[achievementId] = true;
+                saveAchievements(achievements);
+                // 显示成就解锁提示
+                showPowerUpHint(`🏅 解锁成就: ${ACHIEVEMENTS[achievementId].name}`);
+            }
+        }
+        
+        function checkAchievements(finalScore) {
+            const achievements = loadAchievements();
+            
+            // 首次通关成就
+            if (!achievements.firstPlay) {
+                unlockAchievement('firstPlay');
+            }
+            
+            // 满分挑战成就 (分数达到10000)
+            if (!achievements.highScore && finalScore >= 10000) {
+                unlockAchievement('highScore');
+            }
+            
+            // 速度之王成就
+            if (!achievements.speedKing && dashKillCount >= 10) {
+                unlockAchievement('speedKing');
+            }
+        }
+        
+        function showAchievements() {
+            const achievements = loadAchievements();
+            
+            Object.values(ACHIEVEMENTS).forEach(ach => {
+                const element = document.getElementById(ach.id);
+                if (element) {
+                    element.classList.toggle('unlocked', achievements[ach.id]);
+                }
+            });
+            
+            achievementsScreen.style.display = 'flex';
+            startScreen.style.display = 'none';
+        }
+        
+        function closeAchievements() {
+            achievementsScreen.style.display = 'none';
+            startScreen.style.display = 'flex';
+        }
+        
+        // 分享功能
+        function shareScore() {
+            const text = `🐟 大鱼吃小鱼游戏\n\n本局得分: ${score}\n历史最高分: ${parseInt(localStorage.getItem('highScore') || 0)}\n\n快来挑战我吧！`;
+            shareText.value = text;
+            shareSuccess.style.display = 'none';
+            shareModal.style.display = 'flex';
+        }
+        
+        function copyShareText() {
+            shareText.select();
+            document.execCommand('copy');
+            shareSuccess.style.display = 'block';
+            setTimeout(() => {
+                shareSuccess.style.display = 'none';
+            }, 2000);
+        }
+        
+        function closeShare() {
+            shareModal.style.display = 'none';
+        }
+        
+        // ==================== 输入事件 ====================
         
         // 输入事件
         document.addEventListener('keydown', (e) => {
