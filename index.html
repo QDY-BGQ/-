@@ -243,7 +243,7 @@
             <button class="btn" onclick="startGame()">开始游戏</button>
             <button class="btn" onclick="showLeaderboard()">排行榜</button>
             <button class="btn" onclick="showAchievements()">成就</button>
-            <a href="https://www.laoyujianli.com/maker/2065040300061818881" target="_blank" class="btn">关于作者</a>
+            <button class="btn" onclick="showProfile()">关于作者</button>
             <button class="btn" onclick="showHelp()">游戏说明</button>
         </div>
         
@@ -256,7 +256,7 @@
             </div>
             <div>
                 <button class="iconBtn" id="soundBtn" onclick="toggleSound()">🔊</button>
-                <a href="https://www.laoyujianli.com/maker/2065040300061818881" target="_blank" class="iconBtn">👤</a>
+                <button class="iconBtn" onclick="showProfile()">👤</button>
                 <button class="iconBtn" onclick="pauseGame()">⏸️</button>
             </div>
         </div>
@@ -314,15 +314,8 @@
         
         <!-- 个人简历页面 -->
         <div id="profileScreen">
-            <h2>👤 关于作者</h2>
-            <div class="profileCard">
-                <div class="profileItem"><strong>姓名:</strong> 游戏开发者</div>
-                <div class="profileItem"><strong>职业:</strong> 前端工程师</div>
-                <div class="profileItem"><strong>技能:</strong> HTML5, CSS3, JavaScript, Canvas</div>
-                <div class="profileItem"><strong>项目:</strong> 大鱼吃小鱼 H5游戏</div>
-                <div class="profileItem"><strong>简介:</strong> 热爱游戏开发，专注于创造有趣的互动体验</div>
-            </div>
-            <button class="btn" style="margin-top: 20px;" onclick="closeProfile()">返回</button>
+            <img src="https://neeko-copilot.bytedance.net/api/text2image?prompt=Chinese%20resume%20CV%20秋刀鱼%20with%20young%20asian%20woman%20photo%20avatar%20top%20right%20contact%20info%20phone%20email%20location%20Fuzhou%20education%20section%20blue%20line%20software%20college%20AI%20major%20skills%20section%20work%20experience%20company%20Yudou%20Internet%20Hangzhou%20full%20stack%20developer%20projects%20section%20partner%20matching%20system%20clean%20white%20background%20professional%20Chinese%20font%20layout&image_size=portrait_4_3" alt="简历" style="max-width: 95%; max-height: 85vh; border-radius: 8px;" />
+            <button class="btn" style="margin-top: 15px;" onclick="closeProfile()">返回</button>
         </div>
         
         <!-- 排行榜页面 -->
